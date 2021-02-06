@@ -1,0 +1,71 @@
+{
+  "name": "@keqingrong/http-client",
+  "version": "0.1.0",
+  "description": "A JavaScript HTTP client based on axios and fetch-jsonp",
+  "author": "Qingrong Ke <keqingrong@outlook.com> (https://keqingrong.github.io/)",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/keqingrong/http-client.git"
+  },
+  "main": "dist/index.js",
+  "module": "dist/http-client.esm.js",
+  "typings": "dist/index.d.ts",
+  "files": [
+    "dist",
+    "types"
+  ],
+  "sideEffects": false,
+  "keywords": [
+    "ajax",
+    "axios",
+    "fetch",
+    "http",
+    "http-client",
+    "jsonp",
+    "xhr"
+  ],
+  "engines": {
+    "node": ">=10"
+  },
+  "scripts": {
+    "start": "tsdx watch",
+    "build": "tsdx build",
+    "test": "tsdx test --passWithNoTests",
+    "lint": "tsdx lint src test",
+    "prepare": "npm run build",
+    "size": "size-limit",
+    "analyze": "size-limit --why"
+  },
+  "dependencies": {
+    "@types/qs": "^6.9.5",
+    "axios": "^0.21.0",
+    "fetch-jsonp": "^1.1.3",
+    "qs": "^6.9.4"
+  },
+  "devDependencies": {
+    "@size-limit/preset-small-lib": "^4.6.0",
+    "@typescript-eslint/eslint-plugin": "^4.9.1",
+    "@typescript-eslint/parser": "^4.9.1",
+    "husky": "^4.3.5",
+    "size-limit": "^4.6.0",
+    "tsdx": "^0.14.1",
+    "tslib": "^2.0.3",
+    "typescript": "^4.1.2"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "tsdx lint src test"
+    }
+  },
+  "size-limit": [
+    {
+      "path": "dist/http-client.cjs.production.min.js",
+      "limit": "10 KB"
+    },
+    {
+      "path": "dist/http-client.esm.js",
+      "limit": "10 KB"
+    }
+  ]
+}
